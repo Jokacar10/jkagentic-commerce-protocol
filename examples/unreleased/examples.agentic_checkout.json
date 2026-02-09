@@ -1085,5 +1085,46 @@
     "code": "requires_3ds",
     "message": "This checkout session requires issuer authentication. The request must include 'authentication_result' as provided by the issuer authentication flow.",
     "param": "$.authentication_result"
+  },
+  "authentication_result_denied_example": {
+    "outcome": "denied",
+    "outcome_details": {
+      "transaction_id": "dsTransId_denied_789",
+      "version": "2.2.0"
+    }
+  },
+  "authentication_result_frictionless_example": {
+    "outcome": "attempt_acknowledged",
+    "outcome_details": {
+      "three_ds_cryptogram": "XYZ123FRICTIONLESS456789==",
+      "electronic_commerce_indicator": "06",
+      "transaction_id": "dsTransId_frictionless_456",
+      "version": "2.2.0"
+    }
+  },
+  "complete_session_with_denied_authentication_request": {
+    "buyer": {
+      "first_name": "Marie",
+      "last_name": "Dupont",
+      "email": "marie.dupont@example.fr"
+    },
+    "payment_data": {
+      "token": "spt_3ds_denied_001",
+      "provider": "stripe",
+      "billing_address": {
+        "name": "Marie Dupont",
+        "line_one": "12 Rue de la Paix",
+        "city": "Paris",
+        "country": "FR",
+        "postal_code": "75002"
+      }
+    },
+    "authentication_result": {
+      "outcome": "denied",
+      "outcome_details": {
+        "transaction_id": "dsTransId_denied_789",
+        "version": "2.2.0"
+      }
+    }
   }
 }
